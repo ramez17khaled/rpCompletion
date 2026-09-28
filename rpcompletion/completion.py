@@ -221,7 +221,7 @@ def __complete_transformations(
                     logger=logger,
                 )
                 if not forward:
-                    for _transfo in full_transfo.values():
+                    for _transfo in full_transfo.items():
                         (
                             _transfo["full_transfo"]["right"],
                             _transfo["full_transfo"]["left"],
@@ -817,8 +817,10 @@ def __build_all_pathways(
                 else:
                     target_id = None
                 logger.debug(f"rxn: {rxn._to_dict()}")
-                pathway.add_reaction(rxn=rxn, target_id=target_id)
-
+                pathway.add_reaction(rxn=rxn)
+                if target_id is not None:
+                    pathway.set_target_id(target_id)
+                    
                 ## TRUNK SPECIES
                 pathway.add_species_group(
                     "trunk",
