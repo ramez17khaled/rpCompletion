@@ -852,7 +852,7 @@ def __build_all_pathways(
     if maxsubpaths < 1:
         pathways = list(chain.from_iterable(res_pathways.values()))
     else:
-        pathways = sum(
+        pathways = list(
             chain.from_iterable(
                 pathways[:maxsubpaths] for pathways in res_pathways.values()
             )
