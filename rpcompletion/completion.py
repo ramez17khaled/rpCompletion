@@ -634,7 +634,7 @@ def __build_pathway_combinatorics(
                 }
             except KeyError:
                 logger.error(
-                    f"Could not find transformation {transfo_id} in the cache. Are you in the right chemical space (mnx3.1, mnx4.4, rr2026...)?"
+                    f"Could not find transformation {transfo_id} in the cache. Are you in the right chemical space (mnx3.1, mnx4.4, rr2026-v3.0...)?"
                 )
                 exit(1)
             # Build list of transformations
