@@ -329,7 +329,8 @@ def __build_reader(
     else:
         try:
             with open(path, "r") as file:
-                reader = csv_reader(file, delimiter=delimiter)
+                content = file.read()
+            reader = csv_reader(StringIO(content), delimiter=delimiter)
         except FileNotFoundError:
             logger.error("Could not read file: " + str(path))
             return None
