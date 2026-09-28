@@ -221,7 +221,7 @@ def __complete_transformations(
                     logger=logger,
                 )
                 if not forward:
-                    for _transfo in full_transfo.items():
+                    for _transfo in full_transfo.values():
                         (
                             _transfo["full_transfo"]["right"],
                             _transfo["full_transfo"]["left"],
