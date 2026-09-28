@@ -4,19 +4,20 @@ Created on Jul 15 2020
 @author: Joan Hérisson
 """
 
-from rr_cache import rrCache
-from rplibs import rpPathway
-from rpcompletion import rp_completion
-
 # from rptools.rpcompletion.rpCompletion import (
 #     # build_side_rxn,
 #     # rp2paths_to_dict
 # )
 from os import path as os_path
 from unittest import TestCase
+
 from brs_utils import (
     create_logger,
 )
+from rplibs import rpPathway
+from rr_cache import rrCache
+
+from rpcompletion import rp_completion
 
 
 class Test_rpCompletion(TestCase):
