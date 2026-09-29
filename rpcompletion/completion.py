@@ -666,7 +666,7 @@ def __build_pathway_combinatorics(
                     # Add the triplet ID to identify the sub_pathway
                     pathways_all_reactions[pathway][-1].append(
                         {
-                            "rp2_transfo_id": transfo_id,
+                            "transfo_id": transfo_id,
                             "rule_ids": rule_ids,
                             "tmpl_rxn_ids": tmpl_rxn_ids,
                         }
@@ -754,7 +754,7 @@ def __build_all_pathways(
             for rxn_idx in range(nb_reactions):
 
                 rxn = sub_pathways[sub_path_idx][rxn_idx]
-                transfo_id = rxn["rp2_transfo_id"]
+                transfo_id = rxn["transfo_id"]
                 transfo = transfos[transfo_id]
                 rule_ids = rxn["rule_ids"]
                 tmpl_rxn_id = rxn["tmpl_rxn_ids"]
@@ -802,6 +802,7 @@ def __build_all_pathways(
                 )
                 # write infos
                 for info_id, info in sub_pathways[sub_path_idx][rxn_idx].items():
+                    print(info_id, info)
                     getattr(rxn, "set_" + info_id)(info)
                 rxn.set_rule_score(rr_reactions[rule_ids][tmpl_rxn_id]["rule_score"])
                 rxn.set_idx_in_path(rxn_idx_forward)
